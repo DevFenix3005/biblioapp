@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="itemview_libro_var"
+            type="com.lania.biblioapp.componentes.libros.lista.LibroItemViewModel" />
+    </data>
+
+    <ru.rambler.libs.swipe_layout.SwipeLayout
+        android:id="@+id/item_libro_swipe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:left_swipe_enabled="false">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/libro_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{itemview_libro_var.data.nombre}"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/libro_disponibilidad_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Disponibilidad"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/libro_precio_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/libro_title" />
+
+            <TextView
+                android:id="@+id/libro_precio_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Precio"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/libro_autor_label"
+                app:layout_constraintStart_toEndOf="@+id/libro_disponibilidad_label"
+                app:layout_constraintTop_toBottomOf="@+id/libro_title" />
+
+            <TextView
+                android:id="@+id/libro_autor_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Autor"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/libro_precio_label"
+                app:layout_constraintTop_toBottomOf="@+id/libro_title" />
+
+
+            <TextView
+                android:id="@+id/libro_disponibilidad"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:text="@{itemview_libro_var.data.disponibilidad == 0 ? `No existen piezas disponibles` : itemview_libro_var.data.disponibilidad.toString() + ` pza(s)`}"
+                android:textColor="?attr/colorOnBackground"
+                app:layout_constraintEnd_toStartOf="@+id/libro_precio"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/libro_disponibilidad_label" />
+
+            <TextView
+                android:id="@+id/libro_precio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{`$`+itemview_libro_var.data.precio.toString() + `MXN`}"
+                android:textColor="?attr/colorOnBackground"
+                app:layout_constraintEnd_toStartOf="@+id/libro_autor"
+                app:layout_constraintStart_toEndOf="@+id/libro_disponibilidad"
+                app:layout_constraintTop_toBottomOf="@+id/libro_precio_label" />
+
+            <TextView
+                android:id="@+id/libro_autor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{itemview_libro_var.data.autor}"
+                android:textColor="?attr/colorOnBackground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/libro_precio"
+                app:layout_constraintTop_toBottomOf="@+id/libro_autor_label" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--RIGHT-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#B32424"
+            app:bring_to_clamp="150dp"
+            app:clamp="self"
+            app:gravity="right"
+            app:sticky="100dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="to delete a item form list"
+                android:src="@mipmap/ic_delete_item" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="start|center_vertical"
+                android:text="Borrar"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+
+    </ru.rambler.libs.swipe_layout.SwipeLayout>
+
+
+</layout>

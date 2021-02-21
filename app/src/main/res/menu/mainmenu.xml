@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/item_libro"
+        android:contentDescription="@string/libro_descripcion"
+        android:icon="@mipmap/ic_book_icon"
+        android:title="@string/libro"
+        app:showAsAction="ifRoom|withText" />
+    <item
+        android:id="@+id/item_editor"
+        android:contentDescription="@string/editor_descripcion"
+        android:icon="@mipmap/ic_editor_icon"
+        android:title="@string/editor"
+        app:showAsAction="ifRoom|withText" />
+
+    <item
+        android:id="@+id/item_miembro"
+        android:contentDescription="@string/miembro_descripcion"
+        android:icon="@mipmap/ic_miembro_icon"
+        android:title="@string/miembro"
+        app:showAsAction="ifRoom|withText" />
+</menu>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">BiblioApp</string>
+    <string name="libro">Libro</string>
+    <string name="editor">Editor</string>
+    <string name="miembro">Miembro</string>
+    <string name="libro_descripcion">Formulario para consulta o agregar libros</string>
+    <string name="editor_descripcion">Formulario para consulta o agregar editores</string>
+    <string name="miembro_descripcion">Formulario para consulta o agregar miembros</string>
+    <string name="libros_registrados_1_s">Libros registrados: %1$d</string>
+    <string name="miembros_registrados_1_s">Miembros registrados: %1$d</string>
+    <string name="editores_registrados_1_s">Editores registrados: %1$d</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

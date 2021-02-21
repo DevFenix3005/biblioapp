@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="java.time.format.DateTimeFormatter" />
+
+        <variable
+            name="miembro"
+            type="com.lania.biblioapp.componentes.miembro.lista.MiembroItemViewModel" />
+    </data>
+
+    <ru.rambler.libs.swipe_layout.SwipeLayout
+        android:id="@+id/item_miembro_swipe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/miembro_nombre"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{miembro.data.nombre}"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/miembro_direccion_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Direccion"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/miembro_birthday_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/miembro_nombre" />
+
+            <TextView
+                android:id="@+id/miembro_birthday_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Cumpleaños"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/miembro_elapsed_label"
+                app:layout_constraintStart_toEndOf="@+id/miembro_direccion_label"
+                app:layout_constraintTop_toBottomOf="@+id/miembro_nombre" />
+
+            <TextView
+                android:id="@+id/miembro_elapsed_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:paddingStart="5sp"
+                android:text="Antiguedad de registro"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/miembro_birthday_label"
+                app:layout_constraintTop_toBottomOf="@+id/miembro_nombre" />
+
+
+            <TextView
+                android:id="@+id/miembro_direccion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{miembro.data.direccion}"
+                android:textColor="?attr/colorOnBackground"
+                app:layout_constraintEnd_toStartOf="@+id/miembro_birthday"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/miembro_direccion_label" />
+
+            <TextView
+                android:id="@+id/miembro_birthday"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{miembro.data.fechaDeNacimiento.format(DateTimeFormatter.ofPattern(`dd 'de' MMMM 'del' yyyy`))}"
+                android:textColor="?attr/colorOnBackground"
+                app:layout_constraintEnd_toStartOf="@+id/miembro_elapsed"
+                app:layout_constraintStart_toEndOf="@+id/miembro_direccion"
+                app:layout_constraintTop_toBottomOf="@+id/miembro_birthday_label" />
+
+            <TextView
+                android:id="@+id/miembro_elapsed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{miembro.getElapsedTime}"
+                android:textColor="?attr/colorOnBackground"
+                app:layout_constraintEnd_toEndOf="@+id/miembro_elapsed_label"
+                app:layout_constraintStart_toEndOf="@+id/miembro_birthday"
+                app:layout_constraintTop_toBottomOf="@+id/miembro_elapsed_label" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--RIGHT-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#B32424"
+            app:bring_to_clamp="150dp"
+            app:clamp="self"
+            app:gravity="right"
+            app:sticky="100dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="to delete a item form list"
+                android:src="@mipmap/ic_delete_item" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="start|center_vertical"
+                android:text="Borrar"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!--LEFT-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#245DB3"
+            app:bring_to_clamp="150dp"
+            app:clamp="self"
+            app:gravity="left"
+            app:sticky="100dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:layout_marginEnd="16sp"
+                android:gravity="end|center_vertical"
+                android:text="Actualizar"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </ru.rambler.libs.swipe_layout.SwipeLayout>
+
+
+</layout>
