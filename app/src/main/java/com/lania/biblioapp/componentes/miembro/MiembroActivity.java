@@ -31,11 +31,13 @@ public class MiembroActivity extends AppCompatActivity {
     @Getter
     private MiembroController miembroController;
 
+    private MiembroViewModel miembroViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        MiembroViewModel miembroViewModel = new ViewModelProvider(this).get(MiembroViewModel.class);
+        miembroViewModel = new ViewModelProvider(this).get(MiembroViewModel.class);
         miembroViewModel.getMiembroListAdapter().setMiembroList(initMiembrosList());
 
         ActivityMiembroBinding activityMiembroBinding = DataBindingUtil.setContentView(this, R.layout.activity_miembro);
@@ -55,6 +57,7 @@ public class MiembroActivity extends AppCompatActivity {
     }
 
     public void goToListView() {
+        miembroViewModel.getToolbarsubtitle().setValue("Lista");
         getSupportFragmentManager()
                 .beginTransaction()
                 .setCustomAnimations(
@@ -68,6 +71,7 @@ public class MiembroActivity extends AppCompatActivity {
     }
 
     public void go2Form() {
+        miembroViewModel.getToolbarsubtitle().setValue("Registro");
         getSupportFragmentManager()
                 .beginTransaction()
                 .setCustomAnimations(

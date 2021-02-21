@@ -29,12 +29,14 @@ public class EditorActivity extends AppCompatActivity {
     @Getter
     private EditorController editorController;
 
+    private EditorViewModel editorViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityEditorBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_editor);
 
-        EditorViewModel editorViewModel = new ViewModelProvider(this).get(EditorViewModel.class);
+        editorViewModel = new ViewModelProvider(this).get(EditorViewModel.class);
         editorViewModel.getEditorAdapter().setEditorList(initEditorList());
 
         binding.setEditorVm(editorViewModel);
@@ -50,6 +52,7 @@ public class EditorActivity extends AppCompatActivity {
     }
 
     public void goToListView() {
+        editorViewModel.getToolbarsubtitle().setValue("Lista");
         getSupportFragmentManager()
                 .beginTransaction()
                 .setCustomAnimations(
@@ -63,6 +66,7 @@ public class EditorActivity extends AppCompatActivity {
     }
 
     public void goToEditorForm() {
+        editorViewModel.getToolbarsubtitle().setValue("Registro");
         getSupportFragmentManager()
                 .beginTransaction()
                 .setCustomAnimations(

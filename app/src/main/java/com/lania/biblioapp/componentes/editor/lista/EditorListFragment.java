@@ -19,6 +19,8 @@ import com.lania.biblioapp.R;
 import com.lania.biblioapp.componentes.editor.EditorActivity;
 import com.lania.biblioapp.componentes.editor.EditorController;
 import com.lania.biblioapp.componentes.editor.EditorViewModel;
+import com.lania.biblioapp.componentes.libros.LibroActivity;
+import com.lania.biblioapp.componentes.libros.LibroViewModel;
 import com.lania.biblioapp.databinding.FragmentEditorListBinding;
 
 public class EditorListFragment extends Fragment {
@@ -35,6 +37,14 @@ public class EditorListFragment extends Fragment {
         super(R.layout.fragment_editor_list);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        LibroActivity libroActivity = (LibroActivity) getActivity();
+        LibroViewModel libroViewModel = new ViewModelProvider(libroActivity).get(LibroViewModel.class);
+        libroViewModel.getToolbarsubtitle().setValue("Lista");
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -45,7 +55,6 @@ public class EditorListFragment extends Fragment {
         EditorViewModel editorViewModel = new ViewModelProvider(parent).get(EditorViewModel.class);
         EditorAdapter editorAdapter = editorViewModel.getEditorAdapter();
         editorAdapter.setEditorController(editorController);
-        editorViewModel.setToolbarsubtitle("Lista de editores");
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_editor_list, container, false);
         binding.setEditorAdapter(editorAdapter);

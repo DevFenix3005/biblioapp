@@ -45,8 +45,6 @@ public class EditorFormFragment extends Fragment {
         EditorActivity editorActivity = (EditorActivity) this.getActivity();
         EditorController editorController = editorActivity.getEditorController();
         this.editorViewModel = new ViewModelProvider(editorActivity).get(EditorViewModel.class);
-        this.editorViewModel.setToolbarsubtitle("Formulario de Editores");
-
         fragmentEditorFormBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_editor_form, container, false);
         fragmentEditorFormBinding.setEditor(editorViewModel);
         fragmentEditorFormBinding.setLifecycleOwner(this.getViewLifecycleOwner());

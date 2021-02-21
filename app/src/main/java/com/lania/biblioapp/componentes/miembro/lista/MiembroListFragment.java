@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.lania.biblioapp.R;
+import com.lania.biblioapp.componentes.libros.LibroActivity;
+import com.lania.biblioapp.componentes.libros.LibroViewModel;
 import com.lania.biblioapp.componentes.miembro.MiembroActivity;
 import com.lania.biblioapp.componentes.miembro.MiembroController;
 import com.lania.biblioapp.componentes.miembro.MiembroViewModel;
@@ -48,6 +50,16 @@ public class MiembroListFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        LibroActivity libroActivity = (LibroActivity) getActivity();
+        LibroViewModel libroViewModel = new ViewModelProvider(libroActivity).get(LibroViewModel.class);
+        libroViewModel.getToolbarsubtitle().setValue("Lista");
+    }
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         MiembroActivity miembroActivity = (MiembroActivity) getActivity();
@@ -56,7 +68,6 @@ public class MiembroListFragment extends Fragment {
         MiembroViewModel miembroViewModel = new ViewModelProvider(miembroActivity).get(MiembroViewModel.class);
         MiembroListAdapter miembroListAdapter = miembroViewModel.getMiembroListAdapter();
         miembroListAdapter.setMiembroController(miembroController);
-        miembroViewModel.setToolbarSubtitulo("Lista de Miembros");
 
         fragmentMiembroListBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_miembro_list, container, false);
         fragmentMiembroListBinding.setMiembroAdapter(miembroListAdapter);

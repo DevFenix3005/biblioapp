@@ -40,7 +40,6 @@ public class MiembroFormFragment extends Fragment {
         MiembroController miembroController = miembroActivity.getMiembroController();
 
         MiembroViewModel miembroViewModel = new ViewModelProvider(miembroActivity).get(MiembroViewModel.class);
-        miembroViewModel.setToolbarSubtitulo("Registrar Miembros");
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_miembro_form, container, false);
         binding.setLifecycleOwner(this);
