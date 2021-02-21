@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lania.biblioapp">
+    package="com.lania.biblioapp_cli">
 
     <application
         android:allowBackup="true"
@@ -8,11 +8,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BiblioApp">
-        <activity android:name=".componentes.miembro.MiembroActivity" />
-        <activity android:name=".componentes.libros.LibroActivity" />
-        <activity android:name=".componentes.editor.EditorActivity" />
-        <activity android:name=".MainActivity">
+        android:theme="@style/Theme.BiblioAppCli">
+        <activity android:name="com.lania.biblioapp_cli.componentes.miembro.MiembroActivity" />
+        <activity android:name="com.lania.biblioapp_cli.componentes.libros.LibroActivity" />
+        <activity android:name="com.lania.biblioapp_cli.componentes.editor.EditorActivity" />
+        <activity android:name="com.lania.biblioapp_cli.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,11 +20,6 @@
             </intent-filter>
         </activity>
 
-        <provider
-            android:name=".provedor.LibroContentProvider"
-            android:authorities="com.lania.biblioapp.provedor.LibroContentProvider"
-            android:exported="true"
-            android:multiprocess="true" />
     </application>
 
 </manifest>

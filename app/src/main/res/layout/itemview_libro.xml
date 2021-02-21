@@ -6,7 +6,7 @@
 
         <variable
             name="itemview_libro_var"
-            type="com.lania.biblioapp.componentes.libros.lista.LibroItemViewModel" />
+            type="com.lania.biblioapp_cli.componentes.libros.lista.LibroItemViewModel" />
     </data>
 
     <ru.rambler.libs.swipe_layout.SwipeLayout

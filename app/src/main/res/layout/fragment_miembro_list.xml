@@ -6,7 +6,7 @@
 
         <variable
             name="miembroAdapter"
-            type="com.lania.biblioapp.componentes.miembro.lista.MiembroListAdapter" />
+            type="com.lania.biblioapp_cli.componentes.miembro.lista.MiembroListAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

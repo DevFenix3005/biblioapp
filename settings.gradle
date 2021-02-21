@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "biblioapp"
+rootProject.name = "biblioapp_cli"

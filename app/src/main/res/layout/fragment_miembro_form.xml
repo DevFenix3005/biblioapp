@@ -8,7 +8,7 @@
 
         <variable
             name="miembro"
-            type="com.lania.biblioapp.componentes.miembro.MiembroViewModel" />
+            type="com.lania.biblioapp_cli.componentes.miembro.MiembroViewModel" />
     </data>
 
 

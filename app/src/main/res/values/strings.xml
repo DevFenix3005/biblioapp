@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BiblioApp</string>
+    <string name="app_name">BiblioAppCli</string>
     <string name="libro">Libro</string>
     <string name="editor">Editor</string>
     <string name="miembro">Miembro</string>

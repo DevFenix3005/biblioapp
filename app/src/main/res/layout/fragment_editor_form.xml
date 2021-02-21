@@ -9,7 +9,7 @@
 
         <variable
             name="editor"
-            type="com.lania.biblioapp.componentes.editor.EditorViewModel" />
+            type="com.lania.biblioapp_cli.componentes.editor.EditorViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

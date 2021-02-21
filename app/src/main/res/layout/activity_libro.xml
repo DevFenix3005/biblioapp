@@ -5,7 +5,7 @@
 
         <variable
             name="libroVm"
-            type="com.lania.biblioapp.componentes.libros.LibroViewModel" />
+            type="com.lania.biblioapp_cli.componentes.libros.LibroViewModel" />
     </data>
 
 

@@ -7,7 +7,7 @@
 
         <variable
             name="libroAdapter"
-            type="com.lania.biblioapp.componentes.libros.lista.LibrosListAdapter" />
+            type="com.lania.biblioapp_cli.componentes.libros.lista.LibrosListAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
